@@ -1,34 +1,36 @@
 #!/bin/bash
 
-echo "*  Bash Commands  *"
-echo "List files"
-echo "Show free disk space"
-echo "Show system path"
-echo "Display command history"
-echo "Backup files"
-echo "Exit"
-echo " "
-
-select list in files disk sysPath comHis backup exit
 do
+    echo " "
+    echo "*  Bash Commands  *"
+    echo "1. List files"
+    echo "2. Show free disk space"
+    echo "3. Show system path"
+    echo "4. Display command history"
+    echo "5. Backup files"
+    echo "6. Exit"
+    echo " "
+    
+    read $list
+    
     case $list in 
-        "files")
-            $ ls;;
-        "disk")
-            $ df -h;;
-        "sysPath")
-            $ pwd;;
-        "comHis")
-            $ history;;
-        "backup")
+        1)
+            ls;;
+        2)
+            df -h;;
+        3)
+            pwd;;
+        4)
+            history;;
+        5)
             echo "Enter directory name: "
-            read $dirName
+            read dirName
             echo $dirName " will begin backing up to BackupFolder"
-            mkdir backupFolder
-            cp -r $dirName $backupFolder
+            mkdir BackupFolder
+            cp -r $dirName BackupFolder
             echo "Backed up content:"
-            cat $backupFolder;;
-        "exit")
+            cat $BackupFolder;;
+        6)
             echo "Exiting..."
             break;;
         *)
