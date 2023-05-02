@@ -34,7 +34,7 @@ do
                 read dirName
                 echo $dirName " will begin backing up to BackupFolder"
                 mkdir BackupFolder
-                cp -r "/$dirName" BackupFolder
+                cp -r "$dirName" "BackupFolder"
                 echo "Backed up content:"
                 ls BackupFolder
                 break;;
